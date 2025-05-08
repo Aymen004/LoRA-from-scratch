@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="main",
+    name="lora",
     version="0.1.0",
     author="Aymen KHOMSI",  # Update with your name
     description="A PyTorch implementation of LoRA (Low-Rank Adaptation) built from scratch",

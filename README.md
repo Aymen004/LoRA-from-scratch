@@ -41,8 +41,8 @@ Here's a simple example of how to use LoRA with a pre-trained model:
 ```python
 import torch
 from transformers import AutoModel
-from main import Linear
-from main.helper import mark_only_lora_as_trainable, save_lora_weights, load_lora_weights
+from lora import Linear
+from lora.helper import mark_only_lora_as_trainable, save_lora_weights, load_lora_weights
 
 # Load a pre-trained model
 model = AutoModel.from_pretrained("bert-base-uncased")
@@ -81,7 +81,7 @@ load_lora_weights(model, "lora_weights.pt")
 ### Working with attention layers
 
 ```python
-from main import MergedLinear
+from lora import MergedLinear
 
 # Replace a QKV projection with LoRA
 # Assuming qkv_proj is a linear layer that projects to query, key and value
@@ -99,7 +99,7 @@ qkv_proj = MergedLinear(
 ### Merging weights for inference
 
 ```python
-from main.helper import merge_lora_weights
+from lora.helper import merge_lora_weights
 
 # Merge LoRA weights with base weights for faster inference
 merge_lora_weights(model)
@@ -110,7 +110,7 @@ outputs = model(inputs)
 
 ## Project Structure
 
-- `main/`
+- `lora/`
   - `__init__.py`: Package exports
   - `lora_layers.py`: Core LoRA layer implementations
   - `helper.py`: Utility functions for training and inference
