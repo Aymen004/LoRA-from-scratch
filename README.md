@@ -27,7 +27,7 @@ This implementation provides a clean, educational codebase that closely follows 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/LoRA-from-scratch.git
+git clone https://github.com/Aymen004/LoRA-from-scratch.git
 cd LoRA-from-scratch
 
 # Install directly from the repository
@@ -41,8 +41,8 @@ Here's a simple example of how to use LoRA with a pre-trained model:
 ```python
 import torch
 from transformers import AutoModel
-from lora_from_scratch import Linear
-from lora_from_scratch.helper import mark_only_lora_as_trainable, save_lora_weights, load_lora_weights
+from main import Linear
+from main.helper import mark_only_lora_as_trainable, save_lora_weights, load_lora_weights
 
 # Load a pre-trained model
 model = AutoModel.from_pretrained("bert-base-uncased")
@@ -81,7 +81,7 @@ load_lora_weights(model, "lora_weights.pt")
 ### Working with attention layers
 
 ```python
-from lora_from_scratch import MergedLinear
+from main import MergedLinear
 
 # Replace a QKV projection with LoRA
 # Assuming qkv_proj is a linear layer that projects to query, key and value
@@ -99,7 +99,7 @@ qkv_proj = MergedLinear(
 ### Merging weights for inference
 
 ```python
-from lora_from_scratch.helper import merge_lora_weights
+from main.helper import merge_lora_weights
 
 # Merge LoRA weights with base weights for faster inference
 merge_lora_weights(model)
@@ -115,20 +115,6 @@ outputs = model(inputs)
   - `lora_layers.py`: Core LoRA layer implementations
   - `helper.py`: Utility functions for training and inference
 
-## Citation
-
-If you use this code, please cite the original LoRA paper:
-
-```bibtex
-@inproceedings{
-  hu2021lora,
-  title={{LoRA}: Low-Rank Adaptation of Large Language Models},
-  author={Edward J Hu and Yelong Shen and Phillip Wallis and Zeyuan Allen-Zhu and Yuanzhi Li and Shean Wang and Lu Wang and Weizhu Chen},
-  booktitle={International Conference on Learning Representations},
-  year={2022},
-  url={https://openreview.net/forum?id=nZeVKeeFYf9}
-}
-```
 
 ## License
 

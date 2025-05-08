@@ -10,7 +10,7 @@ setup(
     description="A PyTorch implementation of LoRA (Low-Rank Adaptation) built from scratch",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Aymen-004/LoRA-from-scratch", 
+    url="https://github.com/Aymen004/LoRA-from-scratch", 
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
